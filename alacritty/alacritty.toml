@@ -4,3 +4,12 @@ opacity=0.8
 [colors]
 draw_bold_text_with_bright_colors=true
 
+[font]
+size = 18
+
+# 设置正常字体的样式
+normal = { family = "JetBrains Mono",style = "Regular" }
+# 设置粗体字体的样式
+bold = { family = "JetBrains Mono", style = "Bold" }
+# 设置斜体字体的样式
+italic = { family = "JetBrains Mono", style = "Italic" }

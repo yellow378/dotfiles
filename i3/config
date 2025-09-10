@@ -55,7 +55,9 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id /usr/bin/env rofi -show combi
+bindsym $mod+x exec --no-startup-id /usr/bin/env flameshot gui
+
 
 exec --no-startup-id picom -b
 exec_always feh --bg-fill --randomize /home/lwx/Pictures/Backgrounds/*
@@ -65,8 +67,10 @@ exec --no-startup-id copyq &
 exec --no-startup-id fcitx5 &
 exec --no-startup-id i3blocks
 exec --no-startup-id flameshot
-exec --no-startup-id $HOME/.config/polybar/launch.sh --blocks
+exec --no-startup-id $HOME/.config/polybar/launch.sh --hack
 exec --no-startup-id clash-verge &
+exec --no-startup-id env python /mnt/EDisk/MyProject/perScreen/screen.py
+#exec --no-startup-id hiddify &
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -82,7 +86,7 @@ client.unfocused          #84FFFF      #84FFFF     #171717     #ECECEC       #EC
 client.urgent             #BF616A      #BF616A     #ffffff     #268BD2
 client.placeholder        #84FFFF      #909090     #FFFFFF     #268BD2
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 new_window 1pixel
 
 bindsym $mod+h focus left
@@ -212,5 +216,5 @@ bindsym $mod+r mode "resize"
 #bar {
 #        status_command polybar
 #}
-gaps inner 6
-gaps outer 4
+gaps inner 2
+gaps outer 2

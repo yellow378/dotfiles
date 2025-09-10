@@ -71,7 +71,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting z extract sudo)
+plugins=(git zsh-syntax-highlighting z extract sudo zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -141,3 +141,28 @@ rg(){
 		exit
 	fi
 }
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /home/lwx/.dart-cli-completion/zsh-config.zsh ]] && . /home/lwx/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+
+# go
+export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+
+alias sus="systemctl suspend"
+alias xo='xdg-open'
+
+
+source /home/lwx/.zshrc.fzf
+source /home/lwx/.zshrc.tldr
+
+#nodejs n
+export N_NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
+export NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
+
+#qwen-coder
+export OPENAI_API_KEY="sk-113fd2047b394c299ee1941f0cf8dfb8"
+export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
+export OPENAI_MODEL="qwen3-coder-plus"
