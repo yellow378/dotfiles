@@ -9,16 +9,14 @@
   ],
   "modules-center": [],
   "modules-right": [
-    "idle_inhibitor",
     "pulseaudio",
     "cpu",
     "memory",
     "temperature",
+    "disk",
     "battery",
-    "battery#bat2",
     "clock",
-    "tray",
-    "custom/power"
+    "tray"
   ],
   "hyprland/workspaces": {
     "active-only": false,
@@ -42,77 +40,47 @@
     },
     "sort-by-number": "true"
   },
-  "keyboard-state": {
-    "numlock": true,
-    "capslock": true,
-    "format": "{name} {icon}",
-    "format-icons": {
-      "locked": "",
-      "unlocked": ""
-    }
-  },
-  "idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
-    }
-  },
   "tray": {
-    // "icon-size": 21,
-    "spacing": 10,
-    // "icons": {
-    //   "blueman": "bluetooth",
-    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
-    // }
+    "spacing": 5
   },
   "clock": {
-    // "timezone": "America/New_York",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "format-alt": "{:%Y-%m-%d}"
+    "interval": 20,
+    "timezone": "Asia/Shanghai",
+    "locale": "zh_CN.UTF-8",
+    "format": "<b>{:%Y-%m-%d %a %I:%M %p}</b>",
+    "format-alt": "<b>{:%a.%d,%b}</b>",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
   },
   "cpu": {
+    "interval": 2,
     "format": "{usage}% ",
+    "max-length": 10,
     "tooltip": false
   },
   "memory": {
-    "format": "{}%"
+    "interval": 2,
+    "format": "{used} GB \uf538",
+    "format-alt": "{used} GB / {total} GB \uf538",
+    "max-length": 20
   },
   "temperature": {
-    // "thermal-zone": 2,
-    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    "interval": 30,
+    "thermal-zone": 0,
     "critical-threshold": 80,
-    // "format-critical": "{temperatureC}°C {icon}",
-    "format": "{temperatureC}°C"
-  },
-  "backlight": {
-    // "device": "acpi_video1",
-    "format": "{percent}% {icon}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      "",
-      ""
-    ]
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
   },
   "battery": {
+    "interval": 30,
     "states": {
-      // "good": 95,
       "warning": 30,
       "critical": 15
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
-    "format-charging": "{capacity}% ",
+    "format-charging": "{capacity}% 󱎗 ",
     "format-plugged": "{capacity}% ",
     "format-alt": "{time} {icon}",
-    // "format-good": "", // An empty format will hide the module
-    // "format-full": "",
     "format-icons": [
       "",
       "",
@@ -121,50 +89,20 @@
       ""
     ]
   },
-  "battery#bat2": {
-    "bat": "BAT2"
-  },
-  "power-profiles-daemon": {
-    "format": "{icon}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "",
-      "performance": "",
-      "balanced": "",
-      "power-saver": ""
-    }
-  },
-  "network": {
-    // "interface": "wlp2*", // (Optional) To force the use of this interface
-    "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": "{ipaddr}/{cidr} ",
-    "tooltip-format": "{ifname} via {gwaddr} ",
-    "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
-  },
   "pulseaudio": {
-    // "scroll-step": 1, // %, can be a float
     "format": "{volume}% {icon} {format_source}",
-    "format-bluetooth": "{volume}% {icon} {format_source}",
-    "format-bluetooth-muted": " {icon} {format_source}",
-    "format-muted": " {format_source}",
+    "format-muted": "󰝟 {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
+    "format-icons": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+    ],
     "on-click": "pavucontrol"
+  },
+  "disk": {
+    "format": "{free} GB",
+    "path": "/"
   }
 }
