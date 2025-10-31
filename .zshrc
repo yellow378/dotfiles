@@ -164,11 +164,6 @@ source /home/lwx/.zshrc.tldr
 export N_NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
 export NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
 
-#qwen-coder
-#export OPENAI_API_KEY="sk-113fd2047b394c299ee1941f0cf8dfb8"
-#export OPENAI_BASE_URL="https://dashscope.aliyuncs.com/compatible-mode/v1"
-#export OPENAI_MODEL="qwen3-coder-plus"
-export OPENAI_API_KEY="sk-4a54908251f02211e0c3b8df38251185882ffdc3c11838a9ce3c2126033f236a"
-export OPENAI_BASE_URL="https://openai.qiniu.com/v1"
-export OPENAI_MODEL="qwen3-coder-480b-a35b-instruct"
+source /home/lwx/.secretkey
+
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
