@@ -50,7 +50,7 @@
     "tooltip": false
   },
   "tray": {
-    "spacing": 3
+    "spacing": 5
   },
   "clock": {
     "interval": 20,
@@ -62,13 +62,14 @@
   },
   "cpu": {
     "interval": 2,
-    "format": "| {usage}% ",
-    "max-length": 15
+    "format": "{usage}% ",
+    "max-length": 10,
+    "tooltip": false
   },
   "memory": {
     "interval": 2,
-    "format": "| {used} GB \uf538",
-    "format-alt": "| {used} GB / {total} GB \uf538",
+    "format": "{used} GB \uf538",
+    "format-alt": "{used} GB / {total} GB \uf538",
     "max-length": 20
   },
   "temperature": {
@@ -84,11 +85,11 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "| {capacity}% {icon} |",
-    "format-full": "| {capacity}% {icon} |",
-    "format-charging": "| {capacity}% 󱎗 |",
-    "format-plugged": "| {capacity}%  |",
-    "format-alt": "| {time} {icon} |",
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󱎗 ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
     "format-icons": [
       "",
       "",
@@ -98,7 +99,7 @@
     ]
   },
   "pulseaudio": {
-    "format": "| {volume}% {icon} {format_source}",
+    "format": "{volume}% {icon} {format_source}",
     "format-muted": "󰝟 {format_source}",
     "format-source": "{volume}% ",
     "format-source-muted": "",
@@ -110,7 +111,7 @@
     "on-click": "pavucontrol"
   },
   "disk": {
-    "format": "| {free} GB",
+    "format": "{free} GB",
     "path": "/"
   }
 }
