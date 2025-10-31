@@ -110,7 +110,7 @@
     "on-click": "pavucontrol"
   },
   "disk": {
-    "format": "| {free} GB",
+    "format": "| {free}",
     "path": "/"
   }
 }
