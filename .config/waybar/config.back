@@ -1,0 +1,117 @@
+// -*- mode: jsonc -*-
+{
+  "layer": "top", // Waybar at top layer
+  "position": "top", // Waybar position (top|bottom|left|right)
+  "height": 25, // Waybar height (to be removed for auto height)
+  "spacing": 4, // Gaps between modules (4px)
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "cpu",
+    "memory",
+    //"temperature",
+    "disk",
+    "battery",
+    "tray"
+  ],
+  "hyprland/workspaces": {
+    "show-special": true,
+    "special-visible-only": true,
+    "active-only": false,
+    "all-outputs": true,
+    "disalbe-scroll": false,
+    "on-scroll-up": "hyprctl dispatch workspace -1",
+    "on-scroll-down": "hyprctl dispatch workspace +1",
+    "format": "{icon}",
+    "on-click": "activate",
+    "format-icons": {
+      "1": "一",
+      "2": "二",
+      "3": "三",
+      "4": "四",
+      "5": "五",
+      "6": "六",
+      "7": "七",
+      "8": "八",
+      "9": "九",
+      "10": "十"
+    },
+    "sort-by-number": "true"
+  },
+  "hyprland/window": {
+    "format": "| <b>{class}::</b>{title}",
+    "max-length": 60,
+    "tooltip": false
+  },
+  "tray": {
+    "spacing": 5
+  },
+  "clock": {
+    "interval": 20,
+    "timezone": "Asia/Shanghai",
+    "locale": "zh_CN.UTF-8",
+    "format": "<b>{:%m-%d %H:%M}</b>",
+    "format-alt": "<b>{:%Y-%m-%d %a %H:%M}</b>",
+    "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+  "cpu": {
+    "interval": 2,
+    "format": "{usage}% ",
+    "max-length": 10,
+    "tooltip": false
+  },
+  "memory": {
+    "interval": 2,
+    "format": "{used} GB \uf538",
+    "format-alt": "{used} GB / {total} GB \uf538",
+    "max-length": 20
+  },
+  "temperature": {
+    "interval": 30,
+    "thermal-zone": 0,
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "format": " {temperatureC}°C"
+  },
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{capacity}% {icon}",
+    "format-full": "{capacity}% {icon}",
+    "format-charging": "{capacity}% 󱎗 ",
+    "format-plugged": "{capacity}% ",
+    "format-alt": "{time} {icon}",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon} {format_source}",
+    "format-muted": "󰝟 {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": [
+        "󰕿",
+        "󰖀",
+        "󰕾"
+    ],
+    "on-click": "pavucontrol"
+  },
+  "disk": {
+    "format": "{free} GB",
+    "path": "/"
+  }
+}
