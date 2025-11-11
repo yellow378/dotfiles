@@ -105,7 +105,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export JAVA_HOME=/usr/local/jdk17
 export CLASSPATH=.:${JAVA_HOME}/jre/lib/rt.jar:${JAVA_HOME}/lib/tools.jar
-export PATH=$PATH:${JAVA_HOME}/bin
+export PATH=${JAVA_HOME}/bin:$PATH
 
 export MAVEN_HOME=/usr/local/maven
 export PATH=$PATH:${MAVEN_HOME}/bin
