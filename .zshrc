@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -116,19 +116,49 @@ export BROWSER=microsoft-edge-stable
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/lwx/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/lwx/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/lwx/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/lwx/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/home/lwx/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/lwx/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/lwx/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/lwx/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
+#
 
+#Conda lazy load
+# 定义 Conda 可能的路径（Zsh 数组）
+CONDA_PATH=(
+    /data/miniconda3/bin/conda
+    "$HOME/miniconda3/bin/conda"
+)
+
+# 懒加载 conda 函数
+conda() {
+    echo "Lazy loading conda upon first invocation..."
+    
+    # 删除当前函数自身
+    unfunction conda
+    
+    # 遍历路径找 conda
+    for conda_path in $CONDA_PATH; do
+        if [[ -f "$conda_path" ]]; then
+            echo "Using Conda installation found in $conda_path"
+            # 生成并执行 Zsh hook
+            eval "$("$conda_path" shell.zsh hook 2>/dev/null)"
+            # 重新调用 conda 命令
+            conda "$@"
+            return
+        fi
+    done
+    
+    echo "No conda installation found in \$CONDA_PATH" >&2
+    return 1
+}
 #cuda
 export PATH=$PATH:/opt/cuda/bin
 
@@ -190,4 +220,4 @@ nw() {
         echo "No other wallpapers found."
     fi
 }
-zprof
+#zprof
