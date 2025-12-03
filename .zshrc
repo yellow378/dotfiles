@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
@@ -167,3 +168,26 @@ export NODE_MIRROR=https://mirrors.tuna.tsinghua.edu.cn/nodejs-release/
 source /home/lwx/.secretkey
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
+
+
+#wallpaper
+nw() {
+    WALLPAPER_DIR="$HOME/Pictures/wallpapers/"
+    # 获取当前加载的壁纸（只取最后一行非空的路径）
+    CURRENT_WALL=$(hyprctl hyprpaper listloaded | awk 'NF {path=$0} END {print path}' | xargs basename 2>/dev/null)
+    
+    # 如果没有当前壁纸（首次运行等），CURRENT_WALL 为空，则不过滤
+    if [ -z "$CURRENT_WALL" ]; then
+        WALLPAPER=$(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n 1)
+    else
+        WALLPAPER=$(find "$WALLPAPER_DIR" -type f ! -name "$CURRENT_WALL" \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) | shuf -n 1)
+    fi
+
+    if [ -n "$WALLPAPER" ] && [ -f "$WALLPAPER" ]; then
+        hyprctl hyprpaper reload ",$WALLPAPER"
+        echo "Wallpaper changed to: $(basename "$WALLPAPER")"
+    else
+        echo "No other wallpapers found."
+    fi
+}
+zprof
