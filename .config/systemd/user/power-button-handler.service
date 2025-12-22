@@ -1,0 +1,10 @@
+[Unit]
+Description=Handle power button for i3
+
+[Service]
+Type=oneshot
+ExecStart=/home/lwx/.config/i3/mylock.sh
+ExecStartPost=/usr/bin/systemctl suspend
+
+[Install]
+WantedBy=default.target
