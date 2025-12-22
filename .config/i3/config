@@ -12,7 +12,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- ~/.config/i3/mylock.sh
 exec --no-startup-id xautolock -time 5 -locker "~/.config/i3/mylock.sh" -detectsleep &
 exec --no-startup-id nm-applet
 exec --no-startup-id picom -b
-exec_always feh --bg-fill --randomize /home/lwx/Pictures/wallpapers/sheep.jp
+exec_always feh --bg-fill --randomize /home/lwx/Pictures/wallpapers/sheep.jpg
 exec --no-startup-id dunst &
 exec --no-startup-id copyq &
 exec --no-startup-id fcitx5 &
