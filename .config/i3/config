@@ -27,7 +27,7 @@ set $mod Mod1
 set $win Mod4
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
@@ -181,6 +181,8 @@ font pango:monospace 8
 # doesn't display titlebar
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
+
+for_window [class="^Anki.*"] floating enable
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
