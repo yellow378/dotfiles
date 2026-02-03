@@ -185,6 +185,7 @@ alias sus="systemctl suspend"
 alias xo='xdg-open'
 alias ff='fastfetch'
 alias ED='cd /mnt/EDisk'
+alias DD='cd /mnt/DDisk'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/projects/dotfiles/" --work-tree="$HOME"'
 
 
