@@ -229,3 +229,9 @@ alias nvgpu='__NV_PRIME_RENDER_OFFLOAD=1 __VK_LAYER_NV_optimus=NVIDIA_only __GLX
 
 # opencode
 export PATH=/home/lwx/.opencode/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+. "$HOME/.local/bin/env"
+
+#editor
+export EDITOR=nvim

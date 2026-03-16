@@ -189,7 +189,11 @@ new_window 1pixel
 for_window [class="^Anki.*"] floating enable
 
 for_window [class="^wpp"] floating enable
+for_window [class="^Heynote"] floating enable
 for_window [title="^Photos and Videos"] floating enable
+for_window [title="^图片和视频"] floating enable
+
+for_window [class="^steam"] floating enable
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
